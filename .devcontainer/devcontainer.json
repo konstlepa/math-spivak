@@ -1,0 +1,49 @@
+{
+	"name": "math-spivak",
+	"build": {
+		"dockerfile": "Dockerfile",
+	},
+	"remoteUser": "vscode",
+	"extensions": [
+		"james-yu.latex-workshop",
+		"spadin.memento-inputs"
+	],
+	"settings": {
+		"files.eol": "\n",
+		"files.exclude": {
+			"**/*.synctex.gz": true,
+			"**/*.md5": true,
+			"**/*.auxlock": true,
+			"**/*.dpth": true,
+			"**/*.aux": true,
+			"**/*.synctex(busy)": true,
+			"**/__latexindent_temp.tex": true,
+			"**/*.fdb_latexmk": true,
+			"**/*.fls": true,
+			"**/*.out": true
+		},
+		"latex-workshop.latex.clean.subfolder.enabled": true,
+		"latex-workshop.synctex.afterBuild.enabled": true,
+		"latex-workshop.latex.autoClean.run": "onBuilt",
+		"latex-workshop.view.pdf.viewer": "tab",
+		"editor.formatOnSave": true,
+		"files.associations": {
+			"*.tex": "latex"
+		},
+		"latex-workshop.latexindent.args": [
+			"-c",
+			"%OUTDIR%/",
+			"%TMPFILE%",
+			"-y=defaultIndent:'%INDENT%'",
+			"-l"
+		],
+		"latex-workshop.latex.recipes": [
+			{
+				"name": "latexmk",
+				"tools": [
+					"latexmk"
+				]
+			}
+		]
+	}
+}

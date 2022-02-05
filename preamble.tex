@@ -1,0 +1,125 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{etoolbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{stackengine}
+\usepackage[active,tightpage]{preview}
+\usepackage{tikz}
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+
+\mdfsetup{
+	innerleftmargin=6pt,
+	innerrightmargin=6pt,
+	splittopskip=\topskip,
+	skipabove=1.5em,
+	skipbelow=1.5em
+}
+
+\makeatletter
+\newcommand\xlabel[2][]{\phantomsection\def\@currentlabelname{#1}\label{#2}}
+\makeatother
+
+\renewcommand{\PreviewBorder}{0.5em}
+
+%% Restore par-indent for preview.
+\edef\keptparindent{\the\parindent}
+\patchcmd{\preview}
+{\ignorespaces} %%% \preview ends with \ignorespaces
+{\parindent\keptparindent\ignorespaces}
+{}{}
+
+\newcommand{\Newpage}{\end{preview}\begin{preview}}
+
+\makeatletter
+\def\p@section{\thechapter.}
+\makeatother
+
+\setlist[1]{leftmargin=*,labelindent=\parindent}
+\setlist[2]{leftmargin=*,labelindent=\parindent}
+
+\newlist{bycases}{enumerate}{2}
+\setlist[bycases,1]{label=Case\,\arabic{bycasesi}., ref=\arabic{bycasesi}}
+\setlist[bycases,2]{label=Case\,\arabic{bycasesi}\,\alph{bycasesii}., ref=\arabic{bycasesi}.\alph{bycasesii},labelindent=1em,leftmargin=!}
+
+\newlist{lenumerate}{enumerate}{2}
+\setlist[lenumerate,1]{label=(\alph{lenumeratei}), ref=\alph{lenumeratei}}
+
+\setlist[enumerate]{leftmargin=*}
+\setlist[enumerate,1]{label=(\arabic*), ref=\arabic*}
+\setlist[enumerate,2]{label=(\alph*), ref=\theenumi\,\alph*}
+
+\renewcommand{\datename}{}
+
+\declaretheoremstyle[
+	headfont=\normalfont\bfseries,
+	notefont=\normalfont\bfseries,
+	notebraces={(}{)},
+	bodyfont=\normalfont,
+	postheadspace=0.5em,
+	preheadhook=\begin{mdframed}, postfoothook=\end{mdframed}
+]{problemstyle}
+
+\declaretheoremstyle[
+	headfont=\normalfont\bfseries,
+	notefont=\normalfont\bfseries,
+	notebraces={(}{)},
+	bodyfont=\normalfont\itshape,
+	postheadspace=0.5em,
+	spaceabove=1.5em
+]{theoremstyle}
+
+\declaretheorem[style=problemstyle, numberwithin=section]{problem}
+\declaretheorem[style=theoremstyle, numberwithin=section]{theorem}
+\declaretheorem[style=theoremstyle, sibling=theorem]{lemma}
+\declaretheorem[style=theoremstyle, sibling=theorem]{definition}
+\declaretheorem[style=theoremstyle, sibling=theorem]{axiom}
+\declaretheorem[style=theoremstyle, sibling=theorem]{corollary}
+
+\renewcommand{\theproblem}{\thechapter-\arabic{problem}}
+\renewcommand{\thetheorem}{\thechapter.\arabic{theorem}}
+\renewcommand{\thelemma}{\thechapter.\arabic{lemma}}
+\renewcommand{\thedefinition}{\thechapter.\arabic{definition}}
+\renewcommand{\thecorollary}{\thechapter.\arabic{corollary}}
+\renewcommand{\theaxiom}{\thechapter.\arabic{axiom}}
+
+\declaretheoremstyle[
+	spaceabove=6pt,
+	spacebelow=6pt,
+	headfont=\normalfont\itshape\bfseries,
+	notefont=\normalfont\itshape\bfseries,
+	notebraces={of }{},
+	bodyfont=\normalfont,
+	postheadspace=1em,
+	qed=$\square$
+]{proofstyle}
+\let\proof\relax
+\declaretheorem[style=proofstyle, unnumbered]{proof}
+
+\newcommand{\bibspivak}{
+	\bibitem{spivak}
+	Michael Spivak,
+	\emph{Calculus},
+	4th ed.,
+	Publish or Perish, Inc.,
+	2008.
+}
+
+\newcommand{\TBD}{{\color{red} TBD}}
+\newcommand{\varemph}{\itshape}
+
+\newenvironment{notmine}[1][]{\color{gray}}{}
+\newenvironment{done}[1][]{\color{gray}}{}
+\newenvironment{changed}[1][]{\color{blue}}{}
+
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\bfseries}
+
+\newcommand{\PartProof}[1]{\bigskip\emph{(\ref{#1})}\enspace}
+\newcommand{\PartProblem}[1]{\bigskip\emph{(\ref{#1})}\enspace}

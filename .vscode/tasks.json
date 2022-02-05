@@ -1,0 +1,72 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "make-snapshot",
+			"type": "shell",
+			"command": "make-snapshot.sh",
+			"args": [
+				"${input:pageNumber}",
+				"${config:latex-workshop.latex.outDir}/main.pdf",
+				"${config:latex-workshop.latex.outDir}/snapshot.jpg"
+			],
+			"presentation": {
+				"reveal": "never",
+				"panel": "shared",
+				"clear": true,
+			},
+			"options": {
+				"statusbar": {
+					"hide": false
+				}
+			},
+			"group": "build"
+		},
+		{
+			"label": "send-snapshot",
+			"type": "shell",
+			"command": "send-snapshot.sh",
+			"args": [
+				"${input:webhookUrl}",
+				"${config:latex-workshop.latex.outDir}/snapshot.jpg"
+			],
+			"presentation": {
+				"reveal": "never",
+				"panel": "shared",
+				"clear": true,
+			},
+			"options": {
+				"statusbar": {
+					"hide": false
+				}
+			},
+			"group": "build"
+		}
+	],
+	"inputs": [
+		{
+			"type": "command",
+			"command": "memento.promptString",
+			"id": "pageNumber",
+			"args": {
+				"id": "pageNumber",
+				"description": "Enter Page Number",
+				"default": "1",
+				"placeholder": "page number"
+			}
+		},
+		{
+			"type": "command",
+			"command": "memento.promptString",
+			"id": "webhookUrl",
+			"args": {
+				"id": "webhookUrl",
+				"description": "Enter the Discord channel's WebHook URL",
+				"default": "https://",
+				"placeholder": "https://"
+			}
+		}
+	]
+}

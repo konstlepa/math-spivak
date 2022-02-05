@@ -1,0 +1,11 @@
+onlyOneBackUp: 1
+
+noAdditionalIndent:
+  problem: 0
+  
+indentAfterItems:
+  lenumerate: 1
+  bycases: 1
+
+lookForAlignDelims:
+  split: 1

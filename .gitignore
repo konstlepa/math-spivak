@@ -1,0 +1,13 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+__latexindent_temp.tex
+*.pdf
+*.gz
+*.cut
+*.thm
+*.out
+*.synctex
+/out/
+.DS_Store
