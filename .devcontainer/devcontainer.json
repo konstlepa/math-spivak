@@ -26,6 +26,7 @@
 		"latex-workshop.synctex.afterBuild.enabled": true,
 		"latex-workshop.latex.autoClean.run": "onBuilt",
 		"latex-workshop.view.pdf.viewer": "tab",
+		"latex-workshop.latex.outDir": ".",
 		"editor.formatOnSave": true,
 		"files.associations": {
 			"*.tex": "latex"

@@ -6,7 +6,7 @@ INPUT_FILE=$2
 OUTPUT_FILE=$3
 
 PAGE_NUM=$(($1 - 1))
-LAST_PAGE_NUM=$(pdfinfo out/main.pdf | grep Pages: | tr -d -c 0-9)
+LAST_PAGE_NUM=$(pdfinfo ${INPUT_FILE} | grep Pages: | tr -d -c 0-9)
 
 usage() {
 	echo "Usage: $0 <PAGE NUMBER> <INPUT PDF FILE> <OUTPUT JPG FILE>"

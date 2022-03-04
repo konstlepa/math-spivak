@@ -3,7 +3,7 @@
 *.fls
 *.log
 __latexindent_temp.tex
-*.pdf
+snapshot.jpg
 *.gz
 *.cut
 *.thm

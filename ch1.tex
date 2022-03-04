@@ -606,31 +606,29 @@ Because $a(x + b / 2 a)^2 \geq 0$, we deduce that the smallest possible value of
 	\end{lenumerate}
 \end{problem}
 
-\begin{done}
-	\begin{proof}[(\ref{nprop:p:24:1})]
-		We use mathematical induction.
+\begin{proof}[(\ref{nprop:p:24:1})]
+	We use mathematical induction.
 
-		Base case: Setting $k = 3$, we get
-		$$
-			(a_1 + a_2) + a_3 = a_1 + (a_2 + a_3) = a_1 + a_2 + a_3.
-		$$
+	Base case: Setting $k = 3$, we get
+	$$
+		(a_1 + a_2) + a_3 = a_1 + (a_2 + a_3) = a_1 + a_2 + a_3.
+	$$
 
-		Induction step: Let $k \geq 3$, and suppose that
-		$$
-			(a_i + \cdots + a_{j - 1}) + a_j = a_i + \cdots + a_j,
-		$$
-		where $3 \leq j - i + 1 \leq k$. Then,
-		\begin{align*}
-			 & (a_1 + \cdots + a_k) + a_{k + 1}                                                             \\
-			 & \quad = (a_1 + (a_2 + (a_3 + \cdots + (a_{k - 2} + (a_{k - 1} + a_k))) \cdots ) + a_{k + 1}  \\
-			 & \quad = a_1 + ((a_2 + (a_3 + \cdots + (a_{k - 2} + (a_{k - 1} + a_k))) \cdots ) + a_{k + 1}) \\
-			 & \quad = a_1 + ((a_2 + \cdots + a_k) + a_{k + 1})                                             \\
-			 & \quad = a_1 + (a_2 + \cdots + a_{k + 1})                                                     \\
-			 & \quad = a_1 + (a_2 + (a_3 + \cdots + (a_{k - 1} + (a_k + a_{k + 1}))) \cdots )               \\
-			 & \quad = a_1 + \cdots + a_{k + 1}.
-		\end{align*}
-	\end{proof}
-\end{done}
+	Induction step: Let $k \geq 3$, and suppose that
+	$$
+		(a_i + \cdots + a_{j - 1}) + a_j = a_i + \cdots + a_j,
+	$$
+	where $3 \leq j - i + 1 \leq k$. Then,
+	\begin{align*}
+		 & (a_1 + \cdots + a_k) + a_{k + 1}                                                             \\
+		 & \quad = (a_1 + (a_2 + (a_3 + \cdots + (a_{k - 2} + (a_{k - 1} + a_k))) \cdots ) + a_{k + 1}  \\
+		 & \quad = a_1 + ((a_2 + (a_3 + \cdots + (a_{k - 2} + (a_{k - 1} + a_k))) \cdots ) + a_{k + 1}) \\
+		 & \quad = a_1 + ((a_2 + \cdots + a_k) + a_{k + 1})                                             \\
+		 & \quad = a_1 + (a_2 + \cdots + a_{k + 1})                                                     \\
+		 & \quad = a_1 + (a_2 + (a_3 + \cdots + (a_{k - 1} + (a_k + a_{k + 1}))) \cdots )               \\
+		 & \quad = a_1 + \cdots + a_{k + 1}.
+	\end{align*}
+\end{proof}
 
 \begin{proof}[(\ref{nprop:p:24:2})]
 	Suppose that $n \geq k$. If $n = k$, we will clearly reach the desired result. Now suppose that $n > k$. We use mathematical induction.
@@ -659,9 +657,17 @@ Because $a(x + b / 2 a)^2 \geq 0$, we deduce that the smallest possible value of
 
 	Base case: Setting $k = 2$, we get $s(a_1, a_2) = a_1 + a_2$.
 
-	Induction step: Let $k > 2$, and suppose that $s(a_1, \ldots, a_k) = a_1 + \cdots + a_k$. Using Part (\ref{nprop:p:24:1}) of this problem it follows that
+	Induction step: Let $k > 2$, and suppose that $s(a_1, \ldots, a_k) = a_1 + \cdots + a_k$ for all $k > 2$. There must be two sums $s'(a_1, \ldots, a_l)$ and $s''(a_{l + 1}, \ldots, a_k)$ such that
 	$$
-		s(a_1, \ldots, a_{k + 1}) = (a_1 + \cdots + a_k) + a_{k + 1} = a_1 + ... + a_{k + 1}.
+		s(a_1, \ldots, a_{k + 1}) = s'(a_1, \ldots, a_l) + s''(a_{l + 1}, \ldots, a_{k + 1}),
+	$$
+	where $1 \leq l \leq k$. By an induction hypothesis, it follows that
+	$$
+		s'(a_1, \ldots, a_l) = a_1 + \cdots + a_l \quad \text{and} \quad s''(a_{l + 1}, \ldots, a_{k + 1}) = a_{l + 1} + \cdots + a_{k + 1}.
+	$$
+	From Part (\ref{nprop:p:24:2}) of this problem we then deduce that
+	$$
+		s(a_1, \ldots, a_{k + 1}) = (a_1 + \cdots + a_l) + (a_{l + 1} + \cdots + a_{k + 1}) = a_1 + \cdots + a_{k + 1}.
 	$$
 \end{proof}
 
@@ -676,3 +682,85 @@ Because $a(x + b / 2 a)^2 \geq 0$, we deduce that the smallest possible value of
 	\end{center}
 	Check that properties P1-P9 all hold, even though $1 + 1 = 0$.
 \end{problem}
+
+Suppose that $a, b, c$ are ``numbers''.
+
+\bigskip \emph{(P1)} (Associative law for addition) \enspace We have
+\begin{align*}
+	0 + (0 + 0) & = 0 + 0             \\
+	            & = (0 + 0) + 0,      \\
+	1 + (0 + 0) & = 1 + 0             \\
+	            & = (1 + 0) + 0,      \\
+	0 + (1 + 0) & = 0 + 1             \\
+	            & = (0 + 1) + 0,      \\
+	0 + (0 + 1) & = 0 + 1             \\
+	            & = (0 + 0) + 1,      \\
+	1 + (1 + 0) & = 1 + 1             \\
+	            & = (1 + 1) + 0,      \\
+	0 + (1 + 1) & = 0 + 0 = 0 = 1 + 1 \\
+	            & = (0 + 1) + 1,      \\
+	1 + (1 + 1) & = 1 + 0 = 1 = 0 + 1 \\
+	            & = (1 + 1) + 1.
+\end{align*}
+Hence, $a + (b + c) = (a + b) + c$.
+
+\bigskip \emph{(P2)} (Existense of an additive identity) \enspace We have
+\begin{align*}
+	1 + 0 = 0 + 1 = 1 \quad \text{and} \quad  0 + 0 = 0.
+\end{align*}
+Hence, $a + 0 = 0 + a = a$.
+
+\bigskip \emph{(P3)} (Existence of additive inverses) \enspace We have
+\begin{align*}
+	0 + 0 = 0 \quad \text{and} \quad 1 + 1 = 0.
+\end{align*}
+Then $0 = -0$ and $1 = -1$. Hence, $a + (-a) = (-a) + a = 0$.
+
+\bigskip \emph{(P4)} (Commutative law for addition) \enspace Because $0 + 1 = 1 + 0$, we deduce that $a + b = b + a$.
+
+\bigskip \emph{(P5)} (Associative law for multiplication) \enspace We have
+\begin{align*}
+	0 \cdot (0 \cdot 0) & = 0 \cdot 0                 \\
+	                    & = (0 \cdot 0) \cdot 0,      \\
+	1 \cdot (0 \cdot 0) & = 1 \cdot 0                 \\
+	                    & = (1 \cdot 0) \cdot 0,      \\
+	0 \cdot (1 \cdot 0) & = 0 \cdot 0                 \\
+	                    & = (0 \cdot 1) \cdot 0,      \\
+	0 \cdot (0 \cdot 1) & = 0 \cdot 0                 \\
+	                    & = (0 \cdot 0) \cdot 1,      \\
+	1 \cdot (1 \cdot 0) & = 1 \cdot 0                 \\
+	                    & = (1 \cdot 1) \cdot 0,      \\
+	0 \cdot (1 \cdot 1) & = 0 \cdot 1 = 0 = 0 \cdot 1 \\
+	                    & = (0 \cdot 1) \cdot 1,      \\
+	1 \cdot (1 \cdot 1) & = 1 \cdot 1 = 1             \\
+	                    & = (1 \cdot 1) \cdot 1.
+\end{align*}
+Hence, $a \cdot (b \cdot c) = (a \cdot b) \cdot c$.
+
+\bigskip \emph{(P6)} (Existence of a multiplicative identity) \enspace Because $1 \cdot 1 = 1$ and $1 \neq 0$ it follows that $a \cdot 1 = 1 \cdot a = a$.
+
+\bigskip \emph{(P7)} (Existence of multiplicative inverses) \enspace Because $1 \cdot 1 = 1$ we deduce that $1 = 1^{-1}$, and hence
+$a \cdot a^{-1} = a^{-1} \cdot a = 1$, for $a \neq 0$.
+
+\bigskip \emph{(P8)} (Commutative law for multiplication) \enspace Because $0 \cdot 1 = 1 \cdot 0$, we deduce that $a \cdot b = b \cdot a$.
+
+\bigskip \emph{(P9)} (Distributive law) \enspace We have
+\begin{align*}
+	0 \cdot (0 + 0) & = 0 \cdot 0 = 0 = 0 + 0         \\
+	                & = 0 \cdot 0 + 0 \cdot 0,        \\
+	1 \cdot (0 + 0) & = 1 \cdot 0 = 0 = 1 \cdot 0 + 0 \\
+	                & = 1 \cdot 0 + 1 \cdot 0,        \\
+	0 \cdot (1 + 0) & = 0 \cdot 1 = 0 \cdot 1 + 0     \\
+	                & = 0 \cdot 1 + 0 \cdot 0,        \\
+	0 \cdot (0 + 1) & = 0 \cdot 1 = 0 = 0 + 0         \\
+	                & = 0 \cdot 0 + 0 \cdot 1,        \\
+	1 \cdot (1 + 0) & = 1 \cdot 1 = 1 \cdot 1 + 0     \\
+	                & = 1 \cdot 1 + 1 \cdot 0,        \\
+	0 \cdot (1 + 1) & = 0 \cdot 0 = 0 = 0 + 0         \\
+	                & = 0 \cdot 1 + 0 \cdot 1,        \\
+	1 \cdot (0 + 1) & = 1 \cdot 1 = 1 = 0 + 1         \\
+	                & = 1 \cdot 0 + 1 \cdot 1,        \\
+	1 \cdot (1 + 1) & = 1 \cdot 0 = 0 = 1 + 1         \\
+	                & = 1 \cdot 1 + 1 \cdot 1.
+\end{align*}
+Hence, $a \cdot (b + c) = a \cdot b + a \cdot c$.
